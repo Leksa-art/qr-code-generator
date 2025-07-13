@@ -18,6 +18,7 @@ with st.form("vcard_form"):
     website = st.text_input("เว็บไซต์ (ถ้ามี)", key="website")
     org = st.text_input("ชื่อองค์กร", key="org")
     title = st.text_input("ตำแหน่ง", key="title")
+    address = st.text_area("ที่อยู่", value=st.session_state.address, key="address")
 
     submitted = st.form_submit_button("✨ สร้าง QR Code")
     clear_clicked = st.form_submit_button("🧹 ล้างฟอร์ม", on_click=clear_form)
@@ -31,6 +32,7 @@ ORG:{st.session_state.org}
 TITLE:{st.session_state.title}
 TEL;TYPE=CELL:{st.session_state.phone}
 EMAIL:{st.session_state.email}
+ADR;TYPE=home:;;{address};;;;
 NOTE:Line ID: {st.session_state.line_id}
 URL:{st.session_state.website}
 END:VCARD"""
